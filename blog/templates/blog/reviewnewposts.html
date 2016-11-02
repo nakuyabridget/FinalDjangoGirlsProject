@@ -28,9 +28,6 @@
     <body>
             <h1><a  href="/">Django Girls
             Blog</a></h1>
-            {% if user.is_superuser%}
-            <a href="{% url 'review' %}">Review New blog posts</a>
-            {% endif%}
         </div>
         {% for post in posts %}
         <div class = "post">
@@ -40,8 +37,13 @@
         <h1><a href="">{{post.title}}</a></h1>
          <p>{{   post.text|linebreaksbr  }}</p>
         </div>
-        
-            {% endfor %} 
+        <form method="post">
+        {% csrf_token %}
+
+            <input type="submit" name="Approve" value ="Approve">
+            <input type="button" name="Reject" value = "Reject">
+        </form>
+        {% endfor %} 
         
         </div>
         </div>

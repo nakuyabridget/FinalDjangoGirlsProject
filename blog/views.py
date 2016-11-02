@@ -62,3 +62,11 @@ def addPost(request):
 		post_form = AddPostForm()
 	return render(request,'blog/add_post.html',{'post_form': post_form})
 
+def reviewPost(request):
+    if request.method == 'POST':
+        if 'Approve' in request.POST:
+            print ('approve')
+        else:
+            pass
+    posts = Post.objects.all().filter(status = 'draft')
+    return render(request, 'blog/reviewnewposts.html', {'posts':posts})
