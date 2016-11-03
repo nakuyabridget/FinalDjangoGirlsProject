@@ -2,12 +2,12 @@
 {% block title %}User login{% endblock %}
 {% block head %}User login{% endblock %}
 {% block content %}
-<form method="post" action=".">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="login" />
-</form>
-{% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-{% endfor %}
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="login"/>
+    </form>
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
 {% endblock %}

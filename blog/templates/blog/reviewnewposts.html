@@ -1,17 +1,18 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-    <head lang="en">
-        <meta charset="UTF-8">
-        <title><em>Django Girls blog <em></title>
-         <!-- Bootstrap Core CSS -->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><em>Django Girls blog <em></title>
+    <!-- Bootstrap Core CSS -->
     <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
@@ -25,29 +26,26 @@
     <![endif]-->
 
 </head>
-    <body>
-            <h1><a  href="/">Django Girls
-            Blog</a></h1>
+<body>
+<h1><a href="/">Django Girls
+    Blog</a></h1>
+</div>
+{% for post in posts %}
+    <div class="post">
+        <div class="date">
+            <p>published: {{ post.published_date }}</p>
         </div>
-        {% for post in posts %}
-        <div class = "post">
-        <div class = "date">
-        <p>published: {{post.published_date}}</p>
-        </div>
-        <h1><a href="">{{post.title}}</a></h1>
-         <p>{{   post.text|linebreaksbr  }}</p>
-        </div>
-        <form method="post">
-        {% csrf_token %}
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+    <a href="{% url 'approve' post.id %}">
+    <button>Approve</button>
+    </a>
+{% endfor %}
 
-            <input type="submit" name="Approve" value ="Approve">
-            <input type="button" name="Reject" value = "Reject">
-        </form>
-        {% endfor %} 
-        
-        </div>
-        </div>
-        </div>
-        </div>
-    </body>
+</div>
+</div>
+</div>
+</div>
+</body>
 </html>

@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add posts</title>
+    <title>Add posts</title>
 </head>
 <body>
 
-<form method="POST" action="{% url 'post'%}">
-{% csrf_token %}
-{{ post_form.as_p }}
-s<input type="submit" value="Add Post" />
+<form method="POST" action="{% url 'post' %}">
+    {% csrf_token %}
+    {{ post_form.as_p }}
+    s<input type="submit" value="Add Post"/>
 </form>
 </body>
 </html>

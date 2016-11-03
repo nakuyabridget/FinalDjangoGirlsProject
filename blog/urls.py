@@ -15,6 +15,7 @@ urlpatterns = [
 	url(r'^post/$', views.addPost, name ='post'),
 	url(r'^logout/$', views.signout, name ='signout'),
 	url(r'^reviewposts/$', views.reviewPost, name ='review'),
+	url(r'^(?P<post_id>[0-9]+)/approve/$', views.approvePost, name ='approve'),
 
 
 
