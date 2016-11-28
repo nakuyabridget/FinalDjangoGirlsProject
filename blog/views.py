@@ -5,10 +5,10 @@ from .forms import *
 from blog.forms import AddPostForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, logout, login as django_login
-
+#from django.bing_search import run_query
 
 def post_list(request):
-    posts = Post.objects.all().filter(status='published')
+    posts = Post.objects.all().filter(is_published=True)
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
@@ -58,7 +58,7 @@ def addPost(request):
         post_form = AddPostForm(data=request.POST)
         if post_form.is_valid():
             post = post_form.save()
-            return render_to_response('blog/index.html', {})
+            return HttpResponseRedirect('/')
         else:
             print('There is an error in your form')
     else:
@@ -72,12 +72,31 @@ def reviewPost(request):
             print ('approve')
         else:
             pass
-    posts = Post.objects.all().filter(status='draft')
+    posts = Post.objects.all().filter(is_published=False)
     return render(request, 'blog/reviewnewposts.html', {'posts': posts})
 
 
 def approvePost(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    post.status = "published"
+    post.is_published = True
+    post.save()
     print ('Post ID: ', post_id)
-    return reviewPost(request)
+    return HttpResponseRedirect('/')
+
+def search(request):
+    context = RequestContext(request)
+    result_list = []
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+        if query:
+            # Run our Bing function to get the results list!
+            result_list = SearchForm()
+
+    return render_to_response('django/search.html', {'result_list': result_list})
+
+
+
+
+
+
+

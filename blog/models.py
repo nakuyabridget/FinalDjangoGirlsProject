@@ -2,13 +2,11 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+import re
+from django.db.models import Q
 
 
 class Post(models.Model):
-    choices = (
-        ('draft', 'DRAFT'),
-        ('published', 'PUBLISHED'),)
-
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
@@ -16,7 +14,7 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
-    status = models.CharField(max_length = 10, choices = choices, default='draft')
+    is_published = models.BooleanField(default=False)
 
 
     def publish(self):

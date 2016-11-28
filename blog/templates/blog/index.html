@@ -45,10 +45,7 @@
                     data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Your welcome {% if user.is_authenticated %}
-                {{ user.username }}
-            {% endif %}
-                to the Django Girls Project:Hope you get to know us well</a>
+            
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,16 +53,35 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="hidden">
                     <a href="#page-top"></a>
-                </li>
+                    </li>
+                <a class="page-scroll" href="#">{% if user.username %}
+<p>Welcome {{ user.username }}!Here your page content</p>
+{% else %}
+<p>Welcome anonymous user!
+You need to login</p><br/>
+{% endif %}</a>
                 <li>
                     <a class="page-scroll" href="{% url 'index' %}">Home</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="{% url 'team' %}">Django team</a>
-                </li>
+                 <li>
+                        <a class="page-scroll" href="#services">Searching</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Gallery</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Calender</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Team</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                
                 {% if user.is_authenticated %}
                     <li>
-                        <a class="page-scroll" href="{% url 'signout' %}">Log out</a>
+                        <a class="glyphicon glyphicon-off" aria-hidden = "true" href="{% url 'signout' %}">Log out</a>
                     </li>
                 {% else %}
 
@@ -78,7 +94,7 @@
                 {% endif %}
                 {% if user.is_authenticated %}
                     <li>
-                        <a class="page-scroll" href="{% url 'post' %}">Add Post</a>
+                        <a class="glyphicon glyphicon-plus" aria-hidden = "true" href="{% url 'post' %}">Add Post</a>
                     </li>
                 {% endif %}
                 <li>
@@ -93,162 +109,170 @@
 
 <!-- Header -->
 <header>
-    <div class="container">
-        <div class="intro-text">
-            <div class="intro-lead-in">We inspire women to fall in love with the story of how python married django!
+        <div class="container">
+            <div class="intro-text">
+            <div class="intro-lead-in"></div>
+                <p>t's Nice To Meet You</p>
+                <form role ="search" method="get" action ="#"class="page-scroll btn btn-xl">
+                <div class="form-group">
+               <input type="text" class ="form-control" name="query" value="">   
+               </div>
+               <button type="submit" class="btn btn-default">Binary Search</button>
+    </form>
             </div>
-            <div class="intro-heading">It's Nice To Meet You</div>
-            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
         </div>
-    </div>
-</header>
-
+    </header>
 <!-- Services Section -->
 <section id="services">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Services</h2>
-                <h3 class="section-subheading text-muted">All girls deserve a chance to be the best programmers they can
-                    be..</h3>
+                <h2 class="section-heading">Searching</h2>
+                <h3 class="section-subheading text-muted">Searching is the algorithmic process of finding a particular item in a collection of items.A search typically answers either True or False as to whether the item is present.On occasion, it may be modified to return whre the item is found.
+
+            <P> It turns out that there are many different ways to search for an item,what we are interested in here is how these algorithms work and how they compare to one another.To analyze searching algorithms, we nned to decide on a basic unit of computation.For searching, it makes sense to count the number of comparisons performed.Each comparison may or maynot dicover the item we are looking for.</P>
+                </h3>
             </div>
         </div>
         <div class="row text-center">
             <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                <h4 class="service-heading">Programming</h4>
-                <p class="text-muted">Django Girls organize free Python and Django workshops, create open sourced online
-                    tutorials and curate amazing first experiences with technology.</p>
+                    <img src="static/img/portfolio/files.jpg" class="img-responsive" alt="">
+                <h4 class="service-heading">The Sequential search</h4>
+                <p class="text-muted"> When data items are stored in a collection such as a list, we say that they have a linear or sequential relationship.Each data item is stored in a position relative to the others.The complexity of the sequential search is O(n).Also, the sequential search can be performed on un oredered and an ordered list of items.</p>
+            <div class="intro-text">
+            <div class="intro-lead-in"></div>
+                <p>Let's see how much time the sequential search takes to finish!</p>
+                <form role ="search" method="get" action ="#"class="page-scroll btn btn-xl">
+                <div class="form-group">
+               <input type="text" class ="form-control" name="query" value="">   
+               </div>
+               <button type="submit" class="btn btn-default">Linear search</button>
+    </form>
+            </div>
             </div>
             <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                        <img src="static/img/portfolio/rob.jpg" class="img-responsive" alt="">
                     </span>
-                <h4 class="service-heading">Lively saturday sessions</h4>
-                <p class="text-muted">We inspire women to fall in love with programming.</p>
+                <h4 class="service-heading">Facts about searching</h4>
+                <p class="text-muted">A question you should always ask when selecting a search algorithm is "How fast does the search have to be?"the reason is that, in genera, the faster the algorithm is, the more complex it is.
+
+                Bottom line: you don't always need to use or should use the fastest algorithm</p>
             </div>
             <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                <h4 class="service-heading">Inresting active couching</h4>
-                <p class="text-muted">Its only after attending this beautiful program that you will actually get to know
-                    what am talking about when l say 'interesting active couching'</p>
+                        <img src="static/img/portfolio/files.jpg" class="img-responsive" alt="">
+                <h4 class="service-heading">Binary search</h4>
+                <p class="text-muted">A binary search will start by examining the middle item.If that item is the one, we are searching for, we are done.If it is not the correct item, we can use the ordered nature of the list to eliminate half of the remaining items.If the item we are searching for is greater than the middle item, we know that the entire lower half of the list as well as the middle item can be eliminated from further consideration.</p>
+                <div class="intro-text">
+            <div class="intro-lead-in"></div>
+                <p>Let's see how much time the sequential search takes to finish!</p>
+                <form role ="search" method="get" action ="#"class="page-scroll btn btn-xl">
+                <div class="form-group">
+               <input type="text" class ="form-control" name="query" value="">   
+               </div>
+               <button type="submit" class="btn btn-default">Binary search</button>
+    </form>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- Portfolio Grid Section -->
-<section id="portfolio" class="bg-light-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Portfolio</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="static/img/portfolio/joke.jpg" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Round Icons</h4>
-                    <p class="text-muted">Graphic Design</p>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Gallery</h2>
+                    <h3 class="section-subheading text-muted">Pictures always said more than words.</h3>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="static/img/portfolio/gurls.jpg" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Startup Framework</h4>
-                    <p class="text-muted">Website Design</p>
+                        <img src="static/img/portfolio/algorithms.jpg" class="img-responsive" alt="">
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
                         </div>
+                        <img src="static/img/portfolio/ufds.gif" class="img-responsive" alt="">
+                        <div class="portfolio-caption">
+                        <h4>Searching</h4>
+                        <p class="text-muted">Uninformed search</p>
                     </div>
-                    <img src="static/img/portfolio/kwa.png" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Treehouse</h4>
-                    <p class="text-muted">Website Design</p>
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
                         </div>
+                        <img src="static/img/portfolio/sort.gif" class="img-responsive" alt="">
+                         <div class="portfolio-caption">
+                        <h4>Sorting</h4>
+                        <p class="text-muted">Sorting tree</p>
                     </div>
-                    <img src="static/img/portfolio/temo.jpg" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Golden</h4>
-                    <p class="text-muted">Website Design</p>
+                         </a>
+
+                    
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="static/img/portfolio/yoo.jpg" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Escape</h4>
-                    <p class="text-muted">Website Design</p>
+                        <img src="static/img/portfolio/bin.JPG" class="img-responsive" alt="">
+                    </a>
+                    
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="static/img/portfolio/thanks.jpg" class="img-responsive" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Dreams</h4>
-                    <p class="text-muted">Website Design</p>
+                        <img src="static/img/portfolio/boo.jpg" class="img-responsive" alt="">
+                    </a>
+                    
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="static/img/portfolio/bigo.png" class="img-responsive" alt="">
+                    </a>
+                    
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
 
 <!-- About Section -->
 <section id="about">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">About</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading">Calender</h2>
+                <h3 class="section-subheading text-muted">Let's talk Django.</h3>
             </div>
         </div>
         <div class="row">
@@ -256,17 +280,15 @@
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="static/img/about/1.jpg" alt="">
+                            <img class="img-circle img-responsive" src="static/img/about/dj.png" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
+                                <h4>2016</h4>
                                 <h4 class="subheading">Our Humble Beginnings</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                    voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit
-                                    vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">After recieving a link that was directing every girl that interested to sign up for Django girls, our journey began!</p>
                             </div>
                         </div>
                     </li>
@@ -276,45 +298,39 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <h4>July 2016</h4>
+                                <h4 class="subheading">A coder's generation is Born</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                    voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit
-                                    vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">Our little jouney began in July of 2016 and me personally will never regret beginning this journey!</p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="static/img/about/3.jpg" alt="">
+                            <img class="img-circle img-responsive" src="static/img/about/di.jpg" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2012</h4>
+                                <h4>August 2016</h4>
                                 <h4 class="subheading">Transition to Full Service</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                    voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit
-                                    vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">Meeting every saturday for sessions that went from 10am-1pm, python programming language was introduced, taught and made ineresting.!</p>
                             </div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="static/img/about/4.jpg" alt="">
+                            <img class="img-circle img-responsive" src="static/img/about/smile.jpg" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2014</h4>
+                                <h4>September 2016</h4>
                                 <h4 class="subheading">Phase Two Expansion</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                    voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit
-                                    vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">With the help of the great team, Django on top of Python was introduced and yes, django rocks.!</p>
                             </div>
                         </div>
                     </li>
@@ -343,9 +359,9 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="team-member">
-                    <img src="static/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Kay Garland</h4>
-                    <p class="text-muted">Lead Designer</p>
+                    <img src="static/img/team/Angella.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Angella</h4>
+                    <p class="text-muted">Coach</p>
                     <ul class="list-inline social-buttons">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
@@ -358,9 +374,9 @@
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
-                    <img src="static/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Marketer</p>
+                    <img src="static/img/team/emilly.JPG" class="img-responsive img-circle" alt="">
+                    <h4>Emilly</h4>
+                    <p class="text-muted">Couch</p>
                     <ul class="list-inline social-buttons">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
@@ -373,9 +389,9 @@
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
-                    <img src="static/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Diana Pertersen</h4>
-                    <p class="text-muted">Lead Developer</p>
+                    <img src="static/img/team/kezia.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Kezia Naggitta</h4>
+                    <p class="text-muted">Coach</p>
                     <ul class="list-inline social-buttons">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
@@ -386,11 +402,56 @@
                     </ul>
                 </div>
             </div>
+             <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="static/img/team/mary.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Mary</h4>
+                    <p class="text-muted">Coach</p>
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="static/img/team/ritah.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Ritah</h4>
+                    <p class="text-muted">Coach</p>
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="static/img/team/flav.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Flavia</h4>
+                    <p class="text-muted">Coach</p>
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
-                    laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                <p class="large text-muted">I won't call them mothers but they are surely as good as mothers at what they do.</p>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 from django.contrib.auth.models import User
 from django import forms
 from .models import Post
+from django.db.models import Q
 
 import re#This the regular expressions library.
 from django.core.exceptions import ObjectDoesNotExist
@@ -53,17 +54,19 @@ class AddPostForm(forms.ModelForm):
    		#raise forms.ValidationError('Username is already taken.')
 
 
+class SearchForm(forms.Form):
+    class Meta:
+        search_fields = ('^name', 'description', 'specifications', '=id') 
 
-        	
-        
+        # assumes a fulltext index has been defined on the fields
+        # 'name,description,specifications,id'
+        fulltext_indexes = (
+            ('name', 2), # name matches are weighted higher
+            ('name,description,specifications,id', 1),
+        )
 
-            
-           
-
-        
-
-    	
-        
-
-        
-        
+    """ 
+    A custom addition - the absence of a prepare_category method means
+    the query will search for an exact match on this field.
+    """
+    

@@ -6,6 +6,7 @@ from django.contrib.auth import views as auth_views
 from blog import views as blog_views
 
 urlpatterns = [
+
 	url(r'^posts/$', views.post_list, name='posts'),
 	url(r'^$',views.index, name='index'),
 	url(r'^about/$', views.about, name='about'),
@@ -16,12 +17,7 @@ urlpatterns = [
 	url(r'^logout/$', views.signout, name ='signout'),
 	url(r'^reviewposts/$', views.reviewPost, name ='review'),
 	url(r'^(?P<post_id>[0-9]+)/approve/$', views.approvePost, name ='approve'),
-
-
-
-
-	
-
+	url(r'^search/$', views.search, name ='search'),
 
 ]
 

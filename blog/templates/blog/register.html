@@ -5,7 +5,12 @@
     <form method="post" action=".">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="register"/>
+        <input type="submit" onclick="Popup()" name="register" value="register"/>
+        <script type="text/javascript">
+        	function Popop(){
+        		Popop= window.alert('Yo, you have successfully signed up, lets go on and you login.')
+        	}
+        </script>
     </form>
 
 {% endblock %}
